@@ -1,0 +1,105 @@
+{% extends "user-view/base.html" %}
+{% load static %}
+
+{% block body %}
+
+
+{% for obj in resultObject %}
+<div>
+    <h2 style="text-align:center; color:  royalblue; "> Sree Taralabalu Central School, Ajjihalli</h2>
+</div>
+<div>
+    <h3 style="text-align:center; color: royalblue;"> School Result 2021-2022</h2>
+</div>
+<div>
+
+<h4>Registration Number : {{ obj.userid }}
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name :</th>
+        <th scope="col">{{ obj.name }}</th>
+        <th scope="col">Class :</th>
+        <th scope="col">{{ obj.className }} {{ obj.section }}</th>
+        
+      </tr>
+    </thead>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Max Marks</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <th scope="row">1</th>
+        <td>Kannada</td>
+        <td>125</td>
+        <td>{{ obj.kannada }}</td>
+        <td>{{ obj.kanGrade }}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>English</td>
+        <td>100</td>
+        <td>{{ obj.english }}</td>
+        <td>{{ obj.engGrade }}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Hindi</td>
+        <td>100</td>
+        <td>{{ obj.hindi }}</td>
+        <td>{{ obj.hinGrade }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Maths</td>
+        <td>100</td>
+        <td>{{ obj.maths }}</td>
+        <td>{{ obj.matGrade }}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Science</td>
+        <td>100</td>
+        <td>{{ obj.science }}</td>
+        <td>{{ obj.sciGrade }}</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>Social</td>
+        <td>100</td>
+        <td>{{ obj.socScience }}</td>
+        <td>{{ obj.socGrade }}</td>
+      </tr>
+      <tr  style="background-color:rgb(68, 250, 68);">
+        <th scope="row"></th>
+        <td>Total</td>
+        <td>625</td>
+        <td>{{ obj.total }}</td>
+        <td>{{ obj.grade }}</td>
+      </tr>
+
+      <tr  style="background-color:rgb(68, 250, 68);">
+        <th scope="row"></th>
+        <td>Result :</td>
+        <td>{{ obj.results }}</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endfor %}
+
+{% endblock %}
