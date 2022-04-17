@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
 
     path('mandatory-public-disclosures',views.public_disclosure,name='public_disclosure'),
+    path('documents-information',views.documents_info,name='documents_info'),
+    path('results-and-academic',views.resultsAcademic,name='results_&_academic'),
 
     path('copies_of_recent_extension_of_affiliation',views.affiliation_letter,name='copies_of_recent_extension_of_affiliation'),
     path('copies_of_society_registration',views.society_registration,name='copies_of_society_registration'),
@@ -20,7 +22,4 @@ urlpatterns = [
     path('three_year_board_results',views.three_year_board_results,name='three_year_board_results'),
     path('appendix_IX',views.appendix_IX,name='appendix_IX'),
 
-    path('general_info',views.general_info,name='general_info'),
-    path('documents_info',views.documents_info,name='documents_info'),
-    path('results_academic',views.results_academic,name='results_academic'),
 ]

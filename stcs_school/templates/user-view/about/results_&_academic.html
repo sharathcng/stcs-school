@@ -1,0 +1,66 @@
+{% extends "user-view/base.html" %}
+{% load static %}
+
+{% block title %}
+Mandatory Public Disclosure - Document Information
+{% endblock %}
+
+{% block body %}
+
+<div class="container border border-dark rounded p-3 mb-2">
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="bg-dark h5 text-light text-md-center">
+                <tr>
+                    <th scope="col">Documents Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"> <a href="{% url 'fee_structure' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>1. FEE STRUCTURE OF THE SCHOOL
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'academic_calendar' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>2. ANNUAL ACADEMIC CALANDER
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'management_committee' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>3. LIST OF SCHOOL MANAGEMENT
+                            COMMITTEE (SMC)
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'parents_teacher_association' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>4. LIST OF PARENT TEACHERS
+                            ASSOCIATION MEMBERS
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'three_year_board_results' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>5. LAST THREE YEAR RESULT OF
+                            THE BOARD EXAMINATION
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

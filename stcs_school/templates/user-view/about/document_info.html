@@ -1,0 +1,93 @@
+{% extends "user-view/base.html" %}
+{% load static %}
+
+{% block title %}
+Mandatory Public Disclosure - Document Information
+{% endblock %}
+
+{% block body %}
+
+<div class="container border border-dark rounded p-3 mb-2">
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="bg-dark h5 text-light text-md-center">
+                <tr>
+                    <th scope="col">Documents Information</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"> <a href="{% url 'copies_of_recent_extension_of_affiliation' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>1. COPIES OF RECENT EXTENSION OF
+                            AFFILIATION
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copies_of_society_registration' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>2. COPIES OF SOCIETY REGISTRATION
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copy_of_no_objection_certificate_noc_issued' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>3. COPY OF NO OBJECTION CERTIFICATE
+                            (NOC) ISSUED
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copies_of_recognition_certificate_under_rte_act_2009_and_renewal' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>4. COPIES OF RECOGNITION
+                            CERTIFICATE UNDER RTE ACT, 2009 AND ITS RENEWAL
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copy_of_valid_building_safety_certificate' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>5. COPY OF VALID BUILDING SAFETY
+                            CERTIFICATE
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copy_of_valid_fire_safety_certificate' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>6. COPY OF VALID FIRE SAFETY
+                            CERTIFICATE
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copy_of_the_deo_certificate' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>7. COPY OF THE DEO CERTIFICATE
+                        </a>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th scope="row"> <a href="{% url 'copy_of_valid_water_health_and_sanitation_certificate' %}" target="_blank"
+                            class="link-dark text-decoration-none">
+                            <ion-icon name="arrow-forward-circle"></ion-icon>8. COPY OF VALID WATER, HEALTH AND
+                            SANITATION CERTIFICATE
+                        </a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
