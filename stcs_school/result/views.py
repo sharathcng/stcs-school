@@ -1,12 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
-from asyncio.windows_events import NULL
-from django.shortcuts import render
-
 from result.models import Result
 
 # Create your views here.
+
+def resultSearchPage(request):
+    return render(request, "user-view/results/resultSearchPage.html")
 
 def resultView(request):
     if request.method == "POST":

@@ -1,0 +1,56 @@
+{% extends "user-view/base.html" %}
+{% load static %}
+
+{% block body %}
+
+<section class="ftco-section-parallax">
+    <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                    <h2>School Results 2021-2022 (1st to 9th Standard)</h2>
+                    <div class="row d-flex justify-content-center mt-5">
+                        <div class="col-md-8">
+                            <p>Enter your register number:</p>
+                            <form action="{% url 'resultView' %}" method="post" class="subscribe-form">
+                                {% csrf_token %}
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control" placeholder="Ex: 1A01" name="registerNumber"
+                                        id="registerNumber">
+                                    <input type="submit" value="Search" class="submit px-3">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resultModal">
+                        Help
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">School Results (2021-2022) are announced...!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="fw-bolder fs-4">Check your Results now...!</p>
+            <p class="fw-bold">Steps to find your results :</p>
+            <p class="fw-bold">Step 1: Enter your registration number in the given box.</p>
+            <p class="fw-bold">Step 2: Click on "Search" button.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

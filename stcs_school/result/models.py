@@ -21,13 +21,12 @@ class Result(models.Model):
     matGrade = models.CharField(max_length=1, null = True, blank = True)
     sciGrade = models.CharField(max_length=1, null = True, blank = True)
     socGrade = models.CharField(max_length=1, null = True, blank = True)
-    total = models.PositiveIntegerField()
-    percentage = models.FloatField()
+    total = models.PositiveIntegerField(null = True, blank = True)
+    percentage = models.FloatField(null = True, blank = True)
     grade = models.CharField(max_length=1, null = True, blank = True)
     results = models.TextField(max_length=50, null = True, blank = True)
     passOrFail = models.TextField(max_length=4, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    feesPaid = models.BooleanField()
 
     class Meta:
         unique_together = ('userid','name')

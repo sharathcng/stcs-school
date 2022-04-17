@@ -1,0 +1,31 @@
+{% extends 'about/mandatory_disclosure.html' %}
+
+{% block content %}
+<center>
+    <div class="shadow mx-5 border border-dark rounded" style="max-width: 450px;">
+        <div class=" list-group list-group-flush">
+            <a href="{% url 'fee_structure' %}" target="_blank" class="list-group-item list-group-item-action">
+                <ion-icon name="arrow-forward-circle"></ion-icon>
+                1. FEE STRUCTURE OF THE SCHOOL
+            </a>
+            <a href="{% url 'academic_calendar' %}" target="_blank" class="list-group-item list-group-item-action">
+                <ion-icon name="arrow-forward-circle"></ion-icon>2. ANNUAL ACADEMIC CALANDER
+            </a>
+            <a href="{% url 'management_committee' %}" target="_blank" class="list-group-item list-group-item-action">
+                <ion-icon name="arrow-forward-circle"></ion-icon>3. LIST OF SCHOOL MANAGEMENT
+                COMMITTEE (SMC)
+            </a>
+            <a href="{% url 'parents_teacher_association' %}" target="_blank"
+                class="list-group-item list-group-item-action">
+                <ion-icon name="arrow-forward-circle"></ion-icon>4. LIST OF PARENT TEACHERS
+                ASSOCIATION MEMBERS
+            </a>
+            <a href="{% url 'three_year_board_results' %}" target="_blank" class="list-group-item list-group-item-action">
+                <ion-icon name="arrow-forward-circle"></ion-icon>5. LAST THREE YEAR RESULT OF
+                THE BOARD EXAMINATION
+            </a>
+        </div>
+    </div>
+</center>
+
+{% endblock %}
