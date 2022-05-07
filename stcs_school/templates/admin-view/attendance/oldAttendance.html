@@ -1,0 +1,36 @@
+{% extends 'admin-view/base.html' %}
+{% load static %}
+{% block link %}
+{% endblock %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="col-md-6 col-lg-6 mb-3 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">Update Old Attendance</div>
+                <div class="card-body">
+                    <h5 class="card-title">Class Name : {{ className }}</h5>
+                    <p class="card-text">Total Classes Taken : {{attendanceCount}}</p>
+                    <form method="post" action="{% url 'update-old-attendance' className.id %}">
+                        {% csrf_token %}
+                        <input type="date" name="oldDate" id="oldDate" class="btn btn-sm mb-2" required />
+                            <br>
+                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

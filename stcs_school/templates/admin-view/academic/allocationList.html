@@ -1,0 +1,125 @@
+{% extends 'admin-view/base.html' %}
+{% load static %}
+{% block link %}
+{% endblock %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+
+<!-- Layout wrapper -->
+
+<div class="layout-container">
+
+    <!-- Layout container -->
+    <div class="bere-page">
+
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <div class="row my-auto">
+                    <div class="col text-center">
+                        <div class="fw-bold fs-4"> Teacher Allocation List
+                        </div>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a href="{% url 'create-teacher-allocation' %}" class="btn btn-sm btn-warning">Create New
+                            Allocation</a>
+                    </div>
+                </div>
+
+                {% if teacherAlloc %}
+
+
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Teacher</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        {% for obj in page_obj %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{obj.class_name}}</td>
+                            <td>{{obj.subject_name}}</td>
+                            <td>{{ obj.teacher_name }}</td>
+                            <td class="d-flex justify-content-center">
+                                <a href="{% url 'update-teacher-allocation' obj.id %}" class="btn btn-sm btn-warning">Edit</a>
+                                &nbsp;
+                                <form method="post" action="{% url 'delete-teacher-allocation' obj.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="pagination align-middle text-center">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                        <a class="btn btn-sm btn-dark" href="?page=1">
+                            <i class='bx bxs-arrow-to-left'></i>first
+                        </a>
+                        <a class="btn btn-sm btn-dark" href="?page={{ page_obj.previous_page_number }}">
+                            <i class='bx bxs-chevron-left'></i>previous
+                        </a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+
+                        {% if page_obj.has_next %}
+                        <a class="btn btn-sm btn-dark" href="?page={{ page_obj.next_page_number }}">
+                            next<i class='bx bxs-chevron-right'></i>
+                        </a>
+                        <a class="btn btn-sm btn-dark" href="?page={{ page_obj.paginator.num_pages }}">
+                            last<i class='bx bxs-arrow-to-right'></i>
+                        </a>
+                        {% endif %}
+                    </span>
+                </div>
+
+                {% else %}
+                <div class="row gx-5 justify-content-center text-center">
+                    <div class="col align-self-center">
+                        <div class="p-3 border rounded bg-light">
+                            <h2>No Teacher has been allocated yet..!!!</h2>
+                            <p class="text-center">
+                                Please start allocating <strong>Teacher</strong> to <strong>Classes</strong> by clicking
+                                the button on <b>top right
+                                    corner</b> of this page.<br>
+                            </p>
+                            <h3 class="text-center">Good Luck!</h3>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <!-- / Content -->
+
+
+
+
+            <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+    </div>
+    <!-- / Layout page -->
+</div>
+
+<!-- / Layout wrapper -->
+
+{% endblock %}

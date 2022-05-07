@@ -8288,11 +8288,11 @@ textarea.form-control {
   font-size: 24px; }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 1em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 1em 0; } }
   @media (min-width: 768px) {
     .ftco-section .container-fluid {
       padding: 0 4em; } }

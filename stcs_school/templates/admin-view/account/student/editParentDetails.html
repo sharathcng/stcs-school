@@ -1,0 +1,92 @@
+{% extends 'admin-view/base.html' %}
+{% load static %}
+{% block title %}
+Profile Page
+{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+<!-- Layout wrapper -->
+
+<div class="layout-container">
+
+    <!-- Layout container -->
+    <div class="bere-page">
+
+        <!-- Content wrapper -->
+        <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <form id="formAccountSettings" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div class="row justify-content-between">
+                                    <div class="card-header h5 mb-3 col-3 text-start">
+                                        Parents Details
+                                    </div>
+                                    <h5>Student :</h5>
+                                </div>
+
+                                <hr class="my-0" />
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Father Name</label>
+                                            {{form.father_name}}
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Mother Name</label>
+                                            {{form.mother_name}}
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Father Occupation</label>
+                                            {{form.father_occupation}}
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Mother Occupation</label>
+                                            {{form.mother_occupation}}
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Father Qualification</label>
+                                            {{form.father_qualification}}
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Mother Qualification</label>
+                                            {{form.mother_qualification}}
+                                        </div>
+
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Phone Number</label>
+                                            {{form.phone_number}}
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="fullName" class="form-label">Email</label>
+                                            {{form.email_id}}
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-2">
+                                        <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                                        <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                                    </div>
+                                </div>
+
+                                <!-- /Account -->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- / Content -->
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

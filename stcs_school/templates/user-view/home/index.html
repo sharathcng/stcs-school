@@ -3,17 +3,74 @@
 
 {% block body %}
 
+<style>
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+
+  /* ---- particles.js container ---- */
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  /* ---- stats.js ---- */
+  .count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  .js-count-particles {
+    font-size: 1.1em;
+  }
+
+  #stats,
+  .count-particles {
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  #stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+  }
+
+  .count-particles {
+    border-radius: 0 0 3px 3px;
+  }
+</style>
+
 <hr class="my-0">
-<marquee class="align-middle text-dark">School Results (2021-2022) are announced now..! <span><a href="{% url 'result-search-page' %}">Click
+<marquee class="align-middle text-dark">School Results (2021-2022) are announced now..! <span><a
+      href="{% url 'result-search-page' %}">Click
       here</a></span> to see your result. All the best...!</marquee>
 <hr class="my-0 mb-1">
 
 <div class="hero-wrap" style="background-image: url('static/img/schoolNewBuilding.png'); background-attachment:fixed;">
-  <div class="overlay"></div>
+  <div id="particles-js"></div>
   <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
       <div class="col-md-8 ftco-animate text-center">
-        <h1 class="mb-4">No Nation Can Prosper In Life Without Education</h1>
+        <h1 class="mb-4">Welcome to <br> Shree Taralabalu Central School, Ajjihali</h1>
       </div>
     </div>
   </div>
@@ -63,9 +120,9 @@
   <div class="container">
     <div class="row d-md-flex justify-content-center">
       <div class="col-md-9 about-video text-center">
-        <h2 class="ftco-animate">TARALABALU is a Leading School Around Channagiri</h2>
+        <h2 class="ftco-animate">Taralabalu Central School is a Leading School Around Channagiri</h2>
         <div class="video d-flex justify-content-center">
-          <a href="https://youtu.be/f5bpXhtA2v4"
+          <a href="https://www.youtube.com/watch?v=f5bpXhtA2v4"
             class="button popup-vimeo d-flex justify-content-center align-items-center"><span
               class="ion-ios-play"></span></a>
         </div>
@@ -153,65 +210,12 @@
 
 </div>
 
-<section class="ftco-section testimony-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section ftco-animate text-center">
-        <h2 class="mb-4">What Our Teachers Says</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 ftco-animate">
-        <div class="carousel-testimony owl-carousel">
-          <div class="item">
-            <div class="testimony-wrap text-center">
-              <div class="user-img mb-5" style="background-image: url(static/img/satish.jpg)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">I am really honoured and feel very privileged to function as the Principal of Taralabalu
-                  Central School (STCS).
-                  Let me take this opportunity to thank the Management, Anubhava Mantapa
-                  group of institutions - Sirigere for giving me the opportunity to serve the community here in
-                  Taralabalu.</p>
-                <p class="name text-uppercase">Satish</p>
-                <span class="position">Head Master</span><br>
-                <span class="position">CBSE Board</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap text-center">
-              <div class="user-img mb-5" style="background-image: url(static/img/kiran.jpg)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">I, personally believe that “Imagination is more important than knowledge” because
-                  knowledge is about what we already know, whereas imagination is what moves individuals and cultures
-                  forward. We surely give much importance to imaginative and play way methods, especially starting from
-                  Kindergarten.</p>
-                <p class="name text-uppercase">Kiran Kumar</p>
-                <span class="position">Head Master</span><br>
-                <span class="position">State Board</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-1 pb-3">
       <div class="col-md-7 heading-section ftco-animate text-center">
-        <h2 class="mb-4">Our Courses</h2>
+        <h1 class="mb-4 mt-2">Our Courses</h1>
       </div>
     </div>
     <div class="row">
@@ -282,11 +286,15 @@
 
       </div>
       <iframe class="col-md-6"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247841.15854043784!2d75.68678397512163!3d13.927728089840693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bba5a876c34ac3f%3A0x5a4c892081e66a4f!2sSri%20Taralabalu%20Central%20School!5e0!3m2!1sen!2sin!4v1648065718089!5m2!1sen!2sin"
-        width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1357.0395448702918!2d75.90740649641442!3d14.010224310279002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bba5a876c34ac3f%3A0x5a4c892081e66a4f!2sSri%20Taralabalu%20Central%20School%2C%20Ajjihalli!5e1!3m2!1sen!2sin!4v1650307361391!5m2!1sen!2sin"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
     </div>
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS("particles-js", { "particles": { "number": { "value": 100, "density": { "enable": true, "value_area": 600 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true }); var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+</script>
 {% endblock %}
