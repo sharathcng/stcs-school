@@ -326,7 +326,7 @@ class UploadTimeTable(CreateView):
 
     def get_success_url(self):
         messages.success(self.request,"Timetable uploaded successfully")
-        return reverse_lazy('dashboard')
+        return reverse_lazy('view-time-table')
 
 class ViewTimeTable(ListView):
     model = TimeTable
@@ -349,4 +349,4 @@ class UpdateTimeTable(UpdateView):
 
     def get_success_url(self):
         messages.success(self.request,"Timetable uploaded successfully")
-        return reverse_lazy('dashboard')
+        return reverse_lazy('view-time-table')

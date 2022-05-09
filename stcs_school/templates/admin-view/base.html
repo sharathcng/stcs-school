@@ -263,7 +263,13 @@
                     <div class="dropdown-divider"></div>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    {% if request.user.role == 1 %}
+            <a href="{% url 'edit-student-myProfile' %}" class="dropdown-item text-decoration-none text-dark">
+              {% elif request.user.role == 2 %}
+            <a href="{% url 'edit-teacher-myProfile' %}" class="dropdown-item text-decoration-none text-dark">
+              {% else %}
+            <a href="{% url 'edit-staff-myProfile' %}" class="dropdown-item text-decoration-none text-dark">
+              {% endif %}
                       <i class="bx bx-user me-2"></i>
                       <span class="align-middle">My Profile</span>
                     </a>
