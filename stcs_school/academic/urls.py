@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('batches',views.Batches.as_view(), name="batch"),
@@ -29,4 +31,8 @@ urlpatterns = [
     path('update-old-attendance/<str:pk>', views.UpdateOldAttendance, name = "update-old-attendance"),
     path('save-attendance', views.SaveAttendance.as_view(), name="save-attendance"),
 
-]
+    path('upload-time-table', views.UploadTimeTable.as_view(), name="upload-time-table"),
+    path('view-time-table', views.ViewTimeTable.as_view(), name="view-time-table"),
+    path('update-time-table/<int:pk>', views.UpdateTimeTable.as_view(), name="update-time-table"),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

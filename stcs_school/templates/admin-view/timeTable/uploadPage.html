@@ -1,0 +1,30 @@
+{% extends 'admin-view/base.html' %}
+{% load static %}
+{% block link %}
+{% endblock %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block css %}
+{% endblock %}
+
+{% block body %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="col-md-6 col-lg-6 mb-3 mx-auto">
+                <div class="card text-center">
+                    <div class="card-header">TimeTable Upload Page</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Class Name : {{ form.class_name }}</h5>
+                        <p class="card-text">Upload File : {{form.time_table_file}}</p>
+                        <button class="btn btn-secondary mb-3">Upload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

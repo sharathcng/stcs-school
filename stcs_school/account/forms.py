@@ -58,10 +58,6 @@ class UpdateTeacherForm(forms.ModelForm):
             'aadhaar_number': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
-    def __init__(self, *args, **kwargs):
-        super(UpdateTeacherForm, self).__init__(*args, **kwargs)
-        self.fields['profile_pic'].required = False
-
 
 class UpdateStaffForm(forms.ModelForm):
     class Meta:
@@ -82,10 +78,6 @@ class UpdateStaffForm(forms.ModelForm):
             'phone_number': forms.NumberInput(attrs={'class': 'form-control'}),
             'aadhaar_number': forms.NumberInput(attrs={'class': 'form-control'}),
         }
-
-    def __init__(self, *args, **kwargs):
-        super(UpdateStaffForm, self).__init__(*args, **kwargs)
-        self.fields['profile_pic'].required = False
 
 
 class UpdateStudentForm(forms.ModelForm):
@@ -110,9 +102,6 @@ class UpdateStudentForm(forms.ModelForm):
 
         }
 
-    def __init__(self, *args, **kwargs):
-        super(UpdateStudentForm, self).__init__(*args, **kwargs)
-        self.fields['profile_pic'].required = False
 
 class UpdateParentForm(forms.ModelForm):
     class Meta:

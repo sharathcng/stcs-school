@@ -55,3 +55,11 @@ class Attendance(BasicClass):
     date = models.DateField(auto_now=False, auto_now_add=False)
     morng_presence = models.BooleanField(default=True)
     aftrn_presence = models.BooleanField(default=True)
+
+
+class TimeTable(BasicClass):
+    class_name  = models.ForeignKey(BatchClass, on_delete=models.CASCADE)
+    time_table_file = models.FileField(upload_to='timeTables', max_length=None,blank=True, null=True)
+
+    class Meta:
+        unique_together = ('class_name','time_table_file')

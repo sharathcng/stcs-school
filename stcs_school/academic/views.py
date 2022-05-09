@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from account.models import Student
-from .forms import BatchCreateForm, ClassCreateForm, TeacherAllocateCreateForm, TeacherAllocateUpdateForm, UpdateClassForm, SubjectCreateForm, UpdateSubjectForm
-from .models import Attendance, Batch, BatchClass, Subject, TeacherAllocation
+from .forms import BatchCreateForm, ClassCreateForm, TeacherAllocateCreateForm, TeacherAllocateUpdateForm, TimeTableUploadForm, UpdateClassForm, SubjectCreateForm, UpdateSubjectForm
+from .models import Attendance, Batch, BatchClass, Subject, TeacherAllocation, TimeTable
 from django.contrib import messages
 from django.urls.base import reverse_lazy
 from datetime import datetime, date
@@ -317,3 +317,36 @@ class SaveAttendance(FormView):
                 else:
                     Attendance.objects.filter(id=each).update(aftrn_presence=False)
         return render(request,'admin-view/attendance/attendancePage.html', {'className': className, 'attendance':attendance, 'attendanceCount':attendanceCount})
+
+
+class UploadTimeTable(CreateView):
+    model = TimeTable
+    form_class = TimeTableUploadForm
+    template_name = 'admin-view/timeTable/uploadPage.html'
+
+    def get_success_url(self):
+        messages.success(self.request,"Timetable uploaded successfully")
+        return reverse_lazy('dashboard')
+
+class ViewTimeTable(ListView):
+    model = TimeTable
+    template_name = 'admin-view/timeTable/viewPage.html'
+    context_object_name = 'timeTables'
+    paginate_by = 5
+
+    def get_queryset(self, *args, **kwargs):
+        timeTables = TimeTable.objects.all().order_by('class_name')
+        return timeTables
+
+class UpdateTimeTable(UpdateView):
+    model = TimeTable
+    form_class = TimeTableUploadForm
+    template_name = 'admin-view/timeTable/uploadPage.html'
+
+    def get_object(self, queryset=None):
+        teacherAlloc = TimeTable.objects.get(id=self.kwargs['pk'])
+        return teacherAlloc
+
+    def get_success_url(self):
+        messages.success(self.request,"Timetable uploaded successfully")
+        return reverse_lazy('dashboard')

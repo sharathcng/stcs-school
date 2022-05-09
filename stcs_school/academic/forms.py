@@ -1,9 +1,7 @@
-from faulthandler import disable
+from dataclasses import field
 from django import forms
-from django.forms.widgets import DateInput, TextInput
 from account.models import Teacher
-from .models import Batch, BatchClass, Subject, TeacherAllocation
-from django.core.exceptions import NON_FIELD_ERRORS
+from .models import Batch, BatchClass, Subject, TeacherAllocation, TimeTable
 
 
 class BatchCreateForm(forms.ModelForm):
@@ -117,3 +115,20 @@ class TeacherAllocateUpdateForm(forms.ModelForm):
             'subject_name': forms.Select(attrs={'class': 'form-select'}),
             'teacher_name': forms.Select(attrs={'class': 'form-select'}),
         }
+
+class TimeTableUploadForm(forms.ModelForm):
+    class Meta:
+        model = TimeTable
+        fields = [
+            'class_name',
+            'time_table_file',
+        ]
+
+        widgets = {
+            'class_name': forms.Select(attrs={'class': 'form-select'}),
+            'time_table_file': forms.FileInput(attrs={'class': 'form-control'}),
+        }
+    
+    def __init__(self, *args, **kwargs):
+        super(TimeTableUploadForm, self).__init__(*args, **kwargs)
+        self.fields['class_name'].queryset = BatchClass.objects.filter(batch_year=Batch.objects.last())
