@@ -102,7 +102,7 @@ class CreateTeacher(CreateView):
         if form.is_valid():
             self.object = form.save()
             newTeacher = Teacher.objects.create(user_id=self.object, full_name=fullName, date_of_birth=date_of_birth, gender=gender, email_id=email_id, phone_number=phone_number, blood_group=blood_group,
-                                                aadhaar_number=aadhaar_number, handling_subjects=handling_subjects, present_address=present_address, permanent_address=permanent_address, started_date=started_date)
+                                                aadhaar_number=aadhaar_number, handling_subjects=handling_subjects, present_address=present_address, permanent_address=permanent_address, joining_date=started_date)
             messages.success(self.request, "New Teacher created with the name "+str(newTeacher.full_name)+" ..!!!")
             return self.form_valid(form, **kwargs)
         else:

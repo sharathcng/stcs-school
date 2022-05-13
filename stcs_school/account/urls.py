@@ -9,9 +9,9 @@ urlpatterns = [
     path('logout', views.Logout.as_view(), name="logout"),
     path('dashboard', views.Dashboard.as_view(), name="dashboard"),
 
-    path('edit-myProfile', views.UpdateTeacherMyProfile.as_view(), name="edit-teacher-myProfile"),
-    path('edit-myProfile', views.UpdateStaffMyProfile.as_view(), name="edit-staff-myProfile"),
-    path('edit-myProfile', views.UpdateStudentMyProfile.as_view(), name="edit-student-myProfile"),
+    path('edit-teacher-myProfile', views.UpdateTeacherMyProfile.as_view(), name="edit-teacher-myProfile"),
+    path('edit-staff-myProfile', views.UpdateStaffMyProfile.as_view(), name="edit-staff-myProfile"),
+    path('edit-student-myProfile', views.UpdateStudentMyProfile.as_view(), name="edit-student-myProfile"),
 
 
     path('teachers', views.Teachers.as_view(), name="teachers"),

@@ -27,4 +27,7 @@ urlpatterns = [
     path('parents-details', views.parents, name='parents'),
     path('alumni-details', views.alumni, name='alumni'),
 
+    #email
+    path('send-query', views.home, name='send-query'),
+
 ]

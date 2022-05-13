@@ -160,3 +160,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = (
     ('django.contrib.auth.backends.ModelBackend'),
 )
+
+#gmail_send/settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'cngsharath@gmail.com'
+EMAIL_HOST_PASSWORD = 'gtqtavmargzfxpdl'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
